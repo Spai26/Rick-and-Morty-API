@@ -22,6 +22,7 @@ function App() {
    */
   const onSearch = () => {
     setCharacters([
+      ...characters,
       {
         name: "Morty Smith",
         species: "Human",
