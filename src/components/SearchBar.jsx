@@ -9,6 +9,10 @@ const Searchbar = ({ onSearch }) => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (Object.keys(value).length) {
+      e.target.reset();
+      console.log("Add exitoso");
+    }
   };
   return (
     <div>
@@ -18,11 +22,13 @@ const Searchbar = ({ onSearch }) => {
           name={value}
           placeholder="digita un ID valido"
           onChange={handleOnChange}
+          
         />
         <button
           onClick={() => {
             onSearch(value);
           }}
+          type="submit"
         >
           Agregar
         </button>
