@@ -1,9 +1,11 @@
 import Card from "./components/Card";
 import Cards from "./components/Cards";
-import SearchBar from "./components/SearchBar";
+import Nav from "./components/Nav";
+
 import characters, { Rick } from "./data";
 
 function App() {
+  //home  => app
   const onClose = () => {
     window.alert("emulando un cierre");
   };
@@ -12,7 +14,8 @@ function App() {
   };
   return (
     <div className="App">
-      <SearchBar handleAddCharacter={handleAddCharacter} />
+      <Nav handleAddCharacter={handleAddCharacter} />
+
       <Card
         name={Rick.name}
         species={Rick.species}
