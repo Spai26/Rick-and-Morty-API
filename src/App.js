@@ -1,28 +1,39 @@
-import Card from "./components/Card";
 import Cards from "./components/Cards";
 import Nav from "./components/Nav";
-
-import characters, { Rick } from "./data";
+import { useState } from "react";
 
 function App() {
   //home  => app
+
+  /*
+   * Estado para el el arr de personajes
+   */
+  const [characters, setCharacters] = useState([]);
+
+  /*
+  ! fn => Cierre de una tarjeta de personaje
+   */
   const onClose = () => {
     window.alert("emulando un cierre");
   };
-  const handleAddCharacter = () => {
-    window.alert("agregando un personaje");
+
+  /*
+  ? fn => agregar un personaje
+   */
+  const onSearch = () => {
+    setCharacters([
+      {
+        name: "Morty Smith",
+        species: "Human",
+        gender: "Male",
+        image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+      },
+    ]);
   };
   return (
     <div className="App">
-      <Nav handleAddCharacter={handleAddCharacter} />
+      <Nav onSearch={onSearch} />
 
-      <Card
-        name={Rick.name}
-        species={Rick.species}
-        gender={Rick.gender}
-        image={Rick.image}
-        onClose={onClose}
-      />
       {characters.map((char, index) => (
         <Cards
           key={index}

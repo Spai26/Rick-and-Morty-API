@@ -1,8 +1,9 @@
 import SearchBar from "./SearchBar";
-const Nav = ({ handleAddCharacter }) => {
+
+const Nav = ({ onSearch }) => {
   return (
     <div>
-      <SearchBar handleAddCharacter={handleAddCharacter} />
+      <SearchBar onSearch={onSearch} />
     </div>
   );
 };
