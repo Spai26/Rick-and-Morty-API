@@ -21,7 +21,7 @@ const Searchbar = ({ onSearch }) => {
         />
         <button
           onClick={() => {
-            onSearch();
+            onSearch(value);
           }}
         >
           Agregar

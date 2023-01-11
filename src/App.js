@@ -19,9 +19,10 @@ function App() {
 
   /*
   ? fn => agregar un personaje
+  * debe recibir por parametro el id para agregar al cards
    */
-  const onSearch = () => {
-    setCharacters([
+  const onSearch = (id) => {
+    /* setCharacters([
       ...characters,
       {
         name: "Morty Smith",
@@ -29,7 +30,16 @@ function App() {
         gender: "Male",
         image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
       },
-    ]);
+    ]); */
+    fetch(`https://rickandmortyapi.com/api/character/${id}`)
+      .then((response) => response.json())
+      .then((data) => {
+        if (data.name) {
+          setCharacters((oldChars) => [...oldChars, data]);
+        } else {
+          window.alert("No hay personajes con ese ID");
+        }
+      });
   };
   return (
     <div className="App">
