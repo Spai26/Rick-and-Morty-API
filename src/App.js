@@ -13,8 +13,10 @@ function App() {
   /*
   ! fn => Cierre de una tarjeta de personaje
    */
-  const onClose = () => {
-    window.alert("emulando un cierre");
+  const onClose = (id) => {
+    setCharacters((person) => {
+      return person.filter((e) => e.id !== id);
+    });
   };
 
   /*
@@ -35,7 +37,12 @@ function App() {
       .then((response) => response.json())
       .then((data) => {
         if (data.name) {
-          setCharacters((oldChars) => [...oldChars, data]);
+          let exist = characters.find((e) => e.id === data.id);
+          if (!exist) {
+            setCharacters((oldChars) => [...oldChars, data]);
+          } else {
+            alert("Este personaje ya se esta visualizando");
+          }
         } else {
           window.alert("No hay personajes con ese ID");
         }
@@ -45,16 +52,7 @@ function App() {
     <div className="App">
       <Nav onSearch={onSearch} />
 
-      {characters.map((char, index) => (
-        <Cards
-          key={index}
-          name={char.name}
-          species={char.species}
-          gender={char.gender}
-          image={char.image}
-          onClose={onClose}
-        />
-      ))}
+      <Cards characters={characters} onClose={onClose} />
     </div>
   );
 }
