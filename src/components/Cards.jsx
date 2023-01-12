@@ -6,6 +6,7 @@ const Cards = ({ onClose, characters }) => {
       {characters.map((char, index) => (
         <Card
           key={index}
+          id={char.id}
           name={char.name}
           species={char.species}
           gender={char.gender}
