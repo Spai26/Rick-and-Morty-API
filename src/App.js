@@ -52,24 +52,21 @@ function App() {
       });
   };
   return (
-    console.log(location.pathname),
-    (
-      <div className="App">
-        {location.pathname === "/" ? "" : <Nav onSearch={onSearch} />}
+    <div className="App">
+      {location.pathname === "/" ? "" : <Nav onSearch={onSearch} />}
 
-        <Routes>
-          <Route exact path="/" element={<LoginForm />} />
-          <Route
-            exact
-            path="/home"
-            element={<Cards characters={characters} onClose={onClose} />}
-          />
-          <Route exact path="/about" element={<About />} />
-          <Route exact path="/detail/:id" element={<Detail />} />
-          <Route path="*" element={<Error404 />} />
-        </Routes>
-      </div>
-    )
+      <Routes>
+        <Route exact path="/" element={<LoginForm />} />
+        <Route
+          exact
+          path="/home"
+          element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route exact path="/about" element={<About />} />
+        <Route exact path="/detail/:id" element={<Detail />} />
+        <Route path="*" element={<Error404 />} />
+      </Routes>
+    </div>
   );
 }
 

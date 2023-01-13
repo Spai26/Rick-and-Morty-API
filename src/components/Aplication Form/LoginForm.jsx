@@ -3,18 +3,20 @@ import { Link } from "react-router-dom";
 import Inputs from "../partials/Inputs";
 const LoginFrom = () => {
   const [values, setValues] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
   const inputs = [
     {
       id: 1,
-      type: "text",
-      name: "username",
-      label: "Username",
-      htmlFor: "username",
-      placeholder: "Username",
+      type: "email",
+      name: "email",
+      label: "Email",
+      htmlFor: "email",
+      placeholder: "Email",
+      errorMessaje: "invalid or unregistered email",
+      required: true,
     },
     {
       id: 2,
@@ -23,6 +25,8 @@ const LoginFrom = () => {
       label: "Password",
       htmlFor: "password",
       placeholder: "Password",
+      errorMessaje: "Invalid password",
+      required: true,
     },
   ];
   //restructuring event
@@ -51,6 +55,7 @@ const LoginFrom = () => {
             key={input.id}
             {...input}
             value={values[input.name]}
+            errorMessaje={input.errorMessaje}
             onChange={onChange}
           />
         ))}
