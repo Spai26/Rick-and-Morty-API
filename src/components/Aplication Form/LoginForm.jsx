@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import Inputs from "../partials/Inputs";
 const LoginFrom = () => {
   const [values, setValues] = useState({
@@ -53,7 +54,9 @@ const LoginFrom = () => {
             onChange={onChange}
           />
         ))}
-        <button type="submit">Enviar</button>
+        <Link to="/home">
+          <button type="submit">Enviar</button>
+        </Link>
       </form>
     </div>
   );
