@@ -3,8 +3,8 @@ import Nav from "./components/Nav";
 import About from "./components/pages/About";
 import Detail from "./components/pages/Detail.jsx";
 import LoginForm from "./components/Aplication Form/LoginForm";
-import { useState } from "react";
-import { Routes, Route, useLocation } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Error404 from "./components/pages/Error404";
 function App() {
   //home  => app
@@ -12,7 +12,24 @@ function App() {
    * Estado para el el arr de personajes
    */
   const [characters, setCharacters] = useState([]);
+  const [access, setAcces] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+
+  const email = "user@hotmail.com";
+  const password = "asd123";
+
+  useEffect(() => {
+    !access && navigate("/");
+  }, [access]);
+
+  const login = (userData) => {
+    if (userData.password === password && userData.email === email) {
+      setAcces(true);
+      navigate("/home");
+    }
+  };
+
   /*
   ! fn => Cierre de una tarjeta de personaje
    */
@@ -56,7 +73,7 @@ function App() {
       {location.pathname === "/" ? "" : <Nav onSearch={onSearch} />}
 
       <Routes>
-        <Route exact path="/" element={<LoginForm />} />
+        <Route exact path="/" element={<LoginForm login={login} />} />
         <Route
           exact
           path="/home"

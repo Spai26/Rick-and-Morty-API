@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import Inputs from "../partials/Inputs";
-const LoginFrom = () => {
+const LoginFrom = (props) => {
+  const { login } = props;
   const [values, setValues] = useState({
     email: "",
     password: "",
@@ -40,8 +41,9 @@ const LoginFrom = () => {
 
   const handleOnSubmit = (e) => {
     e.preventDefault();
+    login(values);
     setValues({
-      username: "",
+      email: "",
       password: "",
     });
     console.log(values);
@@ -59,9 +61,8 @@ const LoginFrom = () => {
             onChange={onChange}
           />
         ))}
-        <Link to="/home">
-          <button type="submit">Enviar</button>
-        </Link>
+
+        <button type="submit">Enviar</button>
       </form>
     </div>
   );

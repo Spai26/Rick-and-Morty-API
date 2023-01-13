@@ -9,19 +9,16 @@ const Inputs = (props) => {
     setFocused(true);
   };
   return (
-    console.log(focused),
-    (
-      <div>
-        <label htmlFor={inputProps.htmlFor}> {label}</label>
-        <input
-          {...inputProps}
-          onChange={onChange}
-          onBlur={handleFocus}
-          focused={focused.toString()}
-        />
-        <span className={styled.error}>{errorMessaje}</span>
-      </div>
-    )
+    <div>
+      <label htmlFor={inputProps.htmlFor}> {label}</label>
+      <input
+        {...inputProps}
+        onChange={onChange}
+        onBlur={handleFocus}
+        focused={focused.toString()}
+      />
+      <span className={styled.error}>{errorMessaje}</span>
+    </div>
   );
 };
 
