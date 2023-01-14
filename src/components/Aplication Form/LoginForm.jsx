@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
 import Inputs from "../partials/Inputs";
+
 const LoginFrom = (props) => {
   const { login } = props;
   const [values, setValues] = useState({

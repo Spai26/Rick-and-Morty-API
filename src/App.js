@@ -13,21 +13,27 @@ function App() {
    */
   const [characters, setCharacters] = useState([]);
   const [access, setAcces] = useState(false);
+
   const location = useLocation();
-  const navigate = useNavigate();
+  const navegacion = useNavigate();
 
   const email = "user@hotmail.com";
   const password = "asd123";
 
   useEffect(() => {
-    !access && navigate("/");
+    !access && navegacion("/");
   }, [access]);
 
   const login = (userData) => {
     if (userData.password === password && userData.email === email) {
       setAcces(true);
-      navigate("/home");
+      navegacion("/home");
     }
+  };
+
+  const logOut = () => {
+    setAcces(false);
+    navegacion("/");
   };
 
   /*
@@ -70,7 +76,11 @@ function App() {
   };
   return (
     <div className="App">
-      {location.pathname === "/" ? "" : <Nav onSearch={onSearch} />}
+      {location.pathname === "/" ? (
+        ""
+      ) : (
+        <Nav onSearch={onSearch} logOut={logOut} />
+      )}
 
       <Routes>
         <Route exact path="/" element={<LoginForm login={login} />} />
