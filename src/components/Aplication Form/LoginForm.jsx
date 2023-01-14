@@ -1,6 +1,9 @@
 import { useState } from "react";
 import Inputs from "../partials/Inputs";
 
+import login_logo from "../../assets/login_logo.png";
+import styled from "./LoginForm.module.css";
+
 const LoginFrom = (props) => {
   const { login } = props;
   const [values, setValues] = useState({
@@ -15,7 +18,7 @@ const LoginFrom = (props) => {
       name: "email",
       label: "Email",
       htmlFor: "email",
-      placeholder: "Email",
+      placeholder: "example@anymore.com",
       errorMessaje: "invalid or unregistered email",
       required: true,
     },
@@ -25,7 +28,7 @@ const LoginFrom = (props) => {
       name: "password",
       label: "Password",
       htmlFor: "password",
-      placeholder: "Password",
+      placeholder: "",
       errorMessaje: "Invalid password",
       required: true,
     },
@@ -50,20 +53,31 @@ const LoginFrom = (props) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleOnSubmit}>
-        {inputs.map((input) => (
-          <Inputs
-            key={input.id}
-            {...input}
-            value={values[input.name]}
-            errorMessaje={input.errorMessaje}
-            onChange={onChange}
-          />
-        ))}
+    <div className="container__login">
+      <div className={styled.login__content}>
+        <div className={styled.login__image}>
+          <img src={login_logo} alt="" />
+        </div>
+        <div className={styled.main__login}>
+          <div className={styled.login__header}>
+            <h1>Welcome to aplication </h1>
+          </div>
 
-        <button type="submit">Enviar</button>
-      </form>
+          <form onSubmit={handleOnSubmit} className={styled.login__form}>
+            {inputs.map((input) => (
+              <Inputs
+                key={input.id}
+                {...input}
+                value={values[input.name]}
+                errorMessaje={input.errorMessaje}
+                onChange={onChange}
+              />
+            ))}
+
+            <button type="submit">Sign in</button>
+          </form>
+        </div>
+      </div>
     </div>
   );
 };

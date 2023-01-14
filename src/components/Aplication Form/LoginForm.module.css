@@ -1,0 +1,112 @@
+.login__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.login__image {
+  position: relative;
+  top: -50px;
+  z-index: 100;
+}
+.login__image img {
+  width: 300px;
+  animation-name: logoInfinite;
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  display: inline-block;
+}
+@keyframes logoInfinite {
+  from {
+    transform: rotate(360deg);
+  }
+  to {
+    transform: rotate(0deg);
+  }
+}
+
+.main__login {
+  background-color: rgba(237, 237, 237, 0.59);
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  top: -110px;
+  z-index: 99;
+  padding: 0 30px;
+  font-size: 18px;
+}
+
+.login__header {
+  color: #12b0c9;
+  padding-left: 10px;
+  text-align: center;
+  font-family: var(--text-primary);
+  font-size: 13px;
+  margin-top: 1.2em;
+}
+
+.login__form {
+  width: 100%;
+}
+
+.login__form button {
+  border: none;
+  border-radius: 5px;
+  width: 100%;
+  padding: 1rem;
+  margin: 1em 0 1em 0;
+  margin-left: 10px;
+  background: rgb(2, 0, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(2, 0, 36, 1) 0%,
+    rgba(18, 176, 201, 1) 35%,
+    rgba(0, 212, 255, 1) 100%
+  );
+  color: white;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.form__item {
+  display: flex;
+  flex-direction: column;
+}
+
+.form__item label {
+  font-size: 16px;
+  color: gray;
+  letter-spacing: 2px;
+}
+
+input[type="email"],
+input[type="password"] {
+  width: 100%;
+  padding: 0 2em;
+  margin: 10px;
+  outline: none;
+  height: 55px;
+  border-radius: 5px;
+  border: 1px solid gray;
+  transition: background 2s;
+  color: gray;
+}
+
+input:invalid[focused="true"] {
+  border: 1px solid red;
+}
+input:invalid[focused="true"] ~ span {
+  display: block;
+}
+
+.form__error {
+  color: red;
+  font-size: 14px;
+  padding: 3px;
+  display: none;
+  padding-left: 10px;
+}

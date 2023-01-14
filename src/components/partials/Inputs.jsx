@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styled from "./inputs.module.css";
+import styled from "../../components/Aplication Form/LoginForm.module.css";
 const Inputs = (props) => {
   const { label, onChange, errorMessaje, id, ...inputProps } = props;
 
@@ -9,7 +9,7 @@ const Inputs = (props) => {
     setFocused(true);
   };
   return (
-    <div>
+    <div className={styled.form__item}>
       <label htmlFor={inputProps.htmlFor}> {label}</label>
       <input
         {...inputProps}
@@ -17,7 +17,7 @@ const Inputs = (props) => {
         onBlur={handleFocus}
         focused={focused.toString()}
       />
-      <span className={styled.error}>{errorMessaje}</span>
+      <span className={styled.form__error}>{errorMessaje}</span>
     </div>
   );
 };

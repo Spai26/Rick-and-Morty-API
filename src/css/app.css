@@ -1,4 +1,32 @@
 @import "./normalice.css";
+@import "./root.css";
+@import url("https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Roboto+Mono&display=swap");
 
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
 
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+}
 
+.App {
+  width: 100%;
+  height: 100vh;
+  background: url("../../src/assets/rick-and-morty-en-otro-planeta_3840x2160_xtrafondos.com.jpg")
+    center center fixed no-repeat;
+  background-size: cover;
+  overflow-y: hidden;
+}
+
+.container__login {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}

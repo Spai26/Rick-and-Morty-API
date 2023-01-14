@@ -4,9 +4,11 @@ import { Link } from "react-router-dom";
 const Nav = ({ onSearch, logOut }) => {
   return (
     <div>
-      <SearchBar onSearch={onSearch} />
-      <Link to="/home"> Home </Link>
-      <Link to="/about"> About </Link>
+      <div>
+        <SearchBar onSearch={onSearch} />
+        <Link to="/home"> Home </Link>
+        <Link to="/about"> About </Link>
+      </div>
       <button
         onClick={() => {
           logOut();
