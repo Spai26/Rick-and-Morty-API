@@ -1,0 +1,100 @@
+.nav__header {
+  height: 8vh;
+  width: 100%;
+  top: 0;
+  z-index: 99;
+  background-color: var(--fondo-gradiente);
+  font-size: 1.2rem;
+}
+
+.nav__content {
+  max-width: 1350px;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em;
+  color: var(--text-primary);
+}
+
+.nav__links {
+  background-color: green;
+  width: 40%;
+  order: 3;
+  display: none;
+}
+
+/* nav movile */
+.nav__hamburger {
+  display: none;
+}
+
+.search {
+  background-color: white;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  font-size: 0.5em;
+  margin-right: 10px;
+}
+.search div {
+  margin: auto;
+}
+
+@media screen and (max-width: 960px) {
+  .nav__hamburger {
+    display: flex;
+    font-size: 2rem;
+  }
+
+  .nav__links {
+    display: flex;
+    background-color: var(--fondo-gradiente);
+    width: 50%;
+    height: 20%;
+    right: -100%;
+    position: absolute;
+    top: 9vh;
+    flex-direction: column;
+    transition: 0.5s all ease-in;
+  }
+
+  .isOpen {
+    right: 0;
+  }
+
+  /*componente search*/
+  .isSearch {
+    display: flex;
+    margin-top: 20px;
+  }
+}
+
+.nav__logo {
+  text-transform: capitalize;
+  font-family: var(--text-primary);
+  font-weight: 600;
+  max-width: 150px;
+  letter-spacing: 5px;
+}
+
+a,
+a:active,
+a:visited {
+  text-decoration: none;
+  border: none;
+}
+
+a:hover {
+  color: aqua;
+}
+
+.nav__search {
+  display: none;
+}
+
+.nav__logout {
+  order: 4;
+  display: none;
+}
