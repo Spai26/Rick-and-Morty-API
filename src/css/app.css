@@ -18,7 +18,7 @@ body {
   width: 100%;
   height: 100vh;
   background: url("../../src/assets/rick-and-morty-en-otro-planeta_3840x2160_xtrafondos.com.jpg")
-    center center fixed no-repeat;
+    center center;
   background-size: cover;
   overflow-y: hidden;
 }
