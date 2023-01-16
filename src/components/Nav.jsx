@@ -3,6 +3,7 @@ import { NavLink, Link } from "react-router-dom";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import styled from "./Nav.module.css";
 import { Fragment, useState } from "react";
+
 const Nav = ({ onSearch, logOut }) => {
   const [click, setClick] = useState(false);
   const [search, setSearch] = useState(false);
@@ -17,14 +18,14 @@ const Nav = ({ onSearch, logOut }) => {
 
   return (
     <Fragment>
-      <div className={styled.nav__header}>
-        <div className={styled.nav__content}>
+      <header className={styled.header__main}>
+        <div className={styled.header__content}>
           <div className={styled.nav__logo}>
             <Link to="/home">
               <span>SergioAi</span>
             </Link>
           </div>
-
+          {/* this style movile */}
           <div className={styled.nav__hamburger}>
             <div
               className={styled.search}
@@ -46,21 +47,35 @@ const Nav = ({ onSearch, logOut }) => {
           `}
             onClick={onChangeclick}
           >
-            <NavLink to="/home"> Home </NavLink>
-            <NavLink to="/about"> About </NavLink>
-          </div>
-
-          <div className={styled.nav__logout}>
-            <button
-              onClick={() => {
-                logOut();
-              }}
-            >
-              Log Out
-            </button>
+            <div className={styled.links__item}>
+              <NavLink
+                to="/home"
+                className={({ isActive }) => (isActive ? styled.active : "")}
+              >
+                Home
+              </NavLink>
+            </div>
+            <div className={styled.links__item}>
+              <NavLink
+                to="/about"
+                className={({ isActive }) => (isActive ? styled.active : "")}
+              >
+                About
+              </NavLink>
+            </div>
+            <div className={styled.links__item}>
+              <button
+                className={styled.logout}
+                onClick={() => {
+                  logOut();
+                }}
+              >
+                Log Out
+              </button>
+            </div>
           </div>
         </div>
-      </div>
+      </header>
       <div className={` ${search ? styled.isSearch : styled.nav__search}`}>
         <SearchBar onSearch={onSearch} />
       </div>
