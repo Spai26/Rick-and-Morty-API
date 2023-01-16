@@ -5,23 +5,50 @@
 }
 
 .login__image {
+  width: 150px;
   position: relative;
-  top: -50px;
-  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 99;
+  top: -60px;
 }
-.login__image img {
-  width: 300px;
-  animation-name: logoInfinite;
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
+
+.log_portal {
+  width: 150px;
+  animation: logoInfinite 4s linear infinite;
   display: inline-block;
+  order: 2;
 }
+
 @keyframes logoInfinite {
-  from {
-    transform: rotate(360deg);
+  0% {
+    transform: scale(0) rotate(0deg);
   }
-  to {
-    transform: rotate(0deg);
+  25% {
+    transform: scale(0.5) rotate(180deg);
+  }
+  50% {
+    transform: scale(1) rotate(360deg);
+  }
+}
+
+.log_name {
+  width: 250px;
+  order: 1;
+  position: absolute;
+  animation: nameLogin 2s ease-out 4s alternate infinite;
+}
+
+@keyframes nameLogin {
+  0% {
+    opacity: 0;
+    transform: rotate(-540deg) scale(1.5);
+  }
+
+  100% {
+    opacity: 1;
+    transform: rotate(0) scale(1);
   }
 }
 
@@ -33,18 +60,18 @@
   align-items: center;
   position: relative;
   top: -110px;
-  z-index: 99;
+  z-index: 2;
   padding: 0 30px;
   font-size: 18px;
 }
 
 .login__header {
-  color: #12b0c9;
+  color: var(--color-primary);
   padding-left: 10px;
   text-align: center;
   font-family: var(--text-primary);
   font-size: 13px;
-  margin-top: 1.2em;
+  margin-top: 1.5em;
 }
 
 .login__form {
@@ -52,24 +79,11 @@
 }
 
 .login__form button {
-  border: none;
-  border-radius: 5px;
-  width: 100%;
-  padding: 1rem;
-  margin: 1em 0 1em 0;
-  margin-left: 10px;
-  background: rgb(2, 0, 36);
-  background: linear-gradient(
-    90deg,
-    rgba(2, 0, 36, 1) 0%,
-    rgba(18, 176, 201, 1) 35%,
-    rgba(0, 212, 255, 1) 100%
-  );
-  color: white;
-  text-transform: uppercase;
-  text-align: center;
-  font-weight: bold;
-  cursor: pointer;
+  background-color: var(--button-color-primary);
+}
+
+.login__form button:hover {
+  background-color: var(--button-color-phover);
 }
 
 .form__item {
@@ -79,7 +93,7 @@
 
 .form__item label {
   font-size: 16px;
-  color: gray;
+  color: var(--text-color);
   letter-spacing: 2px;
 }
 
@@ -93,7 +107,7 @@ input[type="password"] {
   border-radius: 5px;
   border: 1px solid gray;
   transition: background 2s;
-  color: gray;
+  color: var(--text-color);
 }
 
 input:invalid[focused="true"] {

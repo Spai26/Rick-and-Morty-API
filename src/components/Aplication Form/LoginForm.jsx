@@ -1,7 +1,8 @@
 import { useState } from "react";
 import Inputs from "../partials/Inputs";
 
-import login_logo from "../../assets/login_logo.png";
+import login_logo from "../../assets/portal.png";
+import name_logo from "../../assets/name.png";
 import styled from "./LoginForm.module.css";
 
 const LoginFrom = (props) => {
@@ -56,7 +57,8 @@ const LoginFrom = (props) => {
     <div className="container__login">
       <div className={styled.login__content}>
         <div className={styled.login__image}>
-          <img src={login_logo} alt="" />
+          <img src={login_logo} alt="" className={styled.log_portal} />
+          <img src={name_logo} alt="" className={styled.log_name} />
         </div>
         <div className={styled.main__login}>
           <div className={styled.login__header}>
