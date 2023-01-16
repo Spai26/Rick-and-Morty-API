@@ -1,5 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 
+import styled from "./SearchBar.module.css";
+
 const Searchbar = ({ onSearch }) => {
   const [value, setValue] = useState("");
   const inputFocus = useRef(null);
@@ -24,8 +26,8 @@ const Searchbar = ({ onSearch }) => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
+    <div className={styled.search_content}>
+      <form onSubmit={handleSubmit} className={styled.search_form}>
         <input
           type="text"
           name={value}
@@ -33,6 +35,7 @@ const Searchbar = ({ onSearch }) => {
           onChange={handleOnChange}
           ref={inputFocus}
           autoFocus
+          autoComplete="off"
         />
         <button
           onClick={() => {
@@ -43,6 +46,9 @@ const Searchbar = ({ onSearch }) => {
           Agregar
         </button>
       </form>
+      <div className={styled.erros}>
+        Por favor solo ingresa numeros del 1 al 827
+      </div>
     </div>
   );
 };
