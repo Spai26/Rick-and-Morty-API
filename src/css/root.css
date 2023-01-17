@@ -1,13 +1,11 @@
 :root {
-  --color-primary: #624f82;
-  --text-color: #222831;
-  --text-hover: #393e46;
-  --button-color-primary: #00337c;
-  --button-color-phover: #0c7b93;
-  --button-color-danger: #950101;
-  --button-color-dhover: #ff0000;
-  --text-primary: "Roboto Mono", monospace;
   --fondo-gradiente: rgba(237, 237, 237, 0.59);
-  --button-color-add: #4e9f3d;
-  --button-color-hadd: #1e5128;
+  --text-primary: "Roboto Mono", monospace;
+  --font-primary: #693c72;
+  --color-primary: #00337c;
+  --color-danger: #ff0000;
+  --color-dhover: #950101;
+  --color-phover: #0c7b93;
+  /*varibles generales*/
+  --border-radius: 5px;
 }

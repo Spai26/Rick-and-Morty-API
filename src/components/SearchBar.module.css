@@ -1,6 +1,5 @@
 .search_content {
   padding-top: 2rem;
-
   width: 100%;
   max-width: 1350px;
   margin: auto;
@@ -11,6 +10,7 @@
   display: flex;
   justify-content: space-around;
   align-items: center;
+  gap: 0.9rem;
 }
 
 .search_form input[type="text"] {
@@ -30,7 +30,6 @@
 .search_form button {
   background-color: green;
   width: 120px;
-  
 }
 
 .search_form button:hover {
@@ -43,8 +42,7 @@
 
 @media only screen and (max-width: 960px) {
   .search_form button {
-    width: 100px;
-    background-color: var(--button-color-add);
+    width: 85px;
     text-transform: capitalize;
   }
 }

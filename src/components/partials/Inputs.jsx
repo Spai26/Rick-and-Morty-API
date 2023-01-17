@@ -1,8 +1,8 @@
 import { useState } from "react";
 import styled from "../../components/Aplication Form/LoginForm.module.css";
+
 const Inputs = (props) => {
   const { label, onChange, errorMessaje, id, ...inputProps } = props;
-
   const [focused, setFocused] = useState(false);
 
   const handleFocus = (e) => {

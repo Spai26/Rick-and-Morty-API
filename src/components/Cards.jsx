@@ -1,8 +1,10 @@
 import Card from "./Card";
+import styled from "./Cards.module.css";
+
 /* nos renderiza varios card */
 const Cards = ({ onClose, characters }) => {
   return (
-    <div>
+    <div className={styled.gallery}>
       {characters.map((char, index) => (
         <Card
           key={index}

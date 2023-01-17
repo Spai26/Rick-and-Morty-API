@@ -2,6 +2,8 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  height: 100vh;
 }
 
 .login__image {
@@ -65,60 +67,72 @@
   font-size: 18px;
 }
 
-.login__header {
-  color: var(--color-primary);
-  padding-left: 10px;
-  text-align: center;
-  font-family: var(--text-primary);
-  font-size: 13px;
-  margin-top: 1.5em;
+@media only screen and (max-width: 540px) {
+  .main__login {
+    font-size: calc(3vw + 2px);
+  }
 }
 
+.login__header {
+  padding-left: 10px;
+  font-family: var(--text-primary);
+  font-size: 13px;
+  margin-top: 2rem;
+}
+
+.login__header h1 {
+  color: var(--font-primary);
+  text-align: center;
+}
 .login__form {
   width: 100%;
 }
-
 .login__form button {
-  background-color: var(--button-color-primary);
+  width: 100%;
+  color: white;
+  background-color: var(--color-primary);
+  margin-bottom: 2rem;
+  transition: background-color 0.5s;
 }
 
 .login__form button:hover {
-  background-color: var(--button-color-phover);
+  background-color: var(--color-phover);
 }
 
 .form__item {
   display: flex;
   flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: 0.8rem;
+  color: var(--font-primary);
 }
 
 .form__item label {
-  font-size: 16px;
+  font-size: 0.75rem;
   color: var(--text-color);
-  letter-spacing: 2px;
+  letter-spacing: 0.075rem;
+  font-weight: 600;
 }
 
 input[type="email"],
 input[type="password"] {
-  width: 100%;
-  padding: 0 2em;
-  margin: 10px;
-  outline: none;
-  height: 55px;
-  border-radius: 5px;
-  border: 1px solid gray;
-  transition: background 2s;
-  color: var(--text-color);
+  padding: 0 1em;
+  transition: border-bottom 2s;
+  color: var(--color-primary);
+}
+input:hover {
+  border-bottom: 1px solid var(--color-phover);
 }
 
 input:invalid[focused="true"] {
-  border: 1px solid red;
+  border: 1px solid var(--color-danger);
 }
 input:invalid[focused="true"] ~ span {
   display: block;
 }
 
 .form__error {
-  color: red;
+  color: var(--color-danger);
   font-size: 14px;
   padding: 3px;
   display: none;
