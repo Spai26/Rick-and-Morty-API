@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import styled from "./Card.module.css";
 
+
 const Card = ({ name, species, gender, image, onClose, id }) => {
   return (
     <div className={styled.card}>
