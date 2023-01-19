@@ -1,4 +1,4 @@
-import SearchBar from "./SearchBar";
+import SearchBar from "../SearchBar/SearchBar";
 import { NavLink, Link } from "react-router-dom";
 import { FaBars, FaTimes, FaSearch } from "react-icons/fa";
 import styled from "./Nav.module.css";
@@ -53,6 +53,14 @@ const Nav = ({ onSearch, logOut }) => {
                 className={({ isActive }) => (isActive ? styled.active : "")}
               >
                 Home
+              </NavLink>
+            </div>
+            <div className={styled.links__item}>
+              <NavLink
+                to="/favorites"
+                className={({ isActive }) => (isActive ? styled.active : "")}
+              >
+                Favorites
               </NavLink>
             </div>
             <div className={styled.links__item}>

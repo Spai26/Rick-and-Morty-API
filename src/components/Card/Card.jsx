@@ -5,7 +5,7 @@ import { useEffect, useState } from "react";
 import {
   addFavoriteCharacter,
   deleteFavoriteCharacter,
-} from "../redux/actions/actions";
+} from "../../redux/actions/actions";
 
 const Card = ({ name, species, gender, image, onClose, id }) => {
   const [isFav, setIsFav] = useState(false);

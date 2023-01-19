@@ -1,11 +1,12 @@
-import Cards from "./components/Cards";
-import Nav from "./components/Nav";
+import Cards from "./components/Cards/Cards";
+import Nav from "./components/Nav/Nav";
 import About from "./components/pages/About";
 import Detail from "./components/pages/Detail.jsx";
 import LoginForm from "./components/Aplication Form/LoginForm";
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
 import Error404 from "./components/pages/Error404";
+import Favorite from "./components/pages/favorites/Favorites";
 function App() {
   //home  => app
   /*
@@ -50,15 +51,6 @@ function App() {
   * debe recibir por parametro el id para agregar al cards
    */
   const onSearch = (id) => {
-    /* setCharacters([
-      ...characters,
-      {
-        name: "Morty Smith",
-        species: "Human",
-        gender: "Male",
-        image: "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
-      },
-    ]); */
     fetch(`https://rickandmortyapi.com/api/character/${id}`)
       .then((response) => response.json())
       .then((data) => {
@@ -88,6 +80,11 @@ function App() {
           exact
           path="/home"
           element={<Cards characters={characters} onClose={onClose} />}
+        />
+        <Route
+          exact
+          path="/favorites"
+          element={<Favorite characters={characters} onClose={onClose} />}
         />
         <Route exact path="/about" element={<About />} />
         <Route exact path="/detail/:id" element={<Detail />} />
