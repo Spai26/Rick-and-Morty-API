@@ -10,6 +10,8 @@
 .card_close {
   width: 100%;
   height: 50px;
+  display: flex;
+  justify-content: space-between;
 }
 
 .card_close button {
@@ -18,6 +20,10 @@
   background-color: var(--color-danger);
   font-weight: 700;
   transition: background-color 0.2s;
+}
+
+.favorite {
+  background-color: white;
 }
 
 .card_close button:hover {
