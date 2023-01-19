@@ -7,24 +7,24 @@ import {
   deleteFavoriteCharacter,
 } from "../../redux/actions/actions";
 
-const Card = ({ name, species, gender, image, onClose, id }) => {
+const Card = (props) => {
   const [isFav, setIsFav] = useState(false);
   const myFavorites = useSelector((state) => state.myFavorites);
   const dispath = useDispatch();
 
-  const handleFavorite = (id) => {
+  const handleFavorite = (props) => {
     if (isFav) {
       setIsFav(false);
-      dispath(deleteFavoriteCharacter(id));
+      dispath(deleteFavoriteCharacter(props.id));
     } else {
       setIsFav(true);
-      dispath(addFavoriteCharacter(id));
+      dispath(addFavoriteCharacter(props));
     }
   };
 
   useEffect(() => {
     myFavorites.forEach((fav) => {
-      if (fav.id === id) {
+      if (fav.id === props.id) {
         setIsFav(true);
       }
     });
@@ -34,23 +34,18 @@ const Card = ({ name, species, gender, image, onClose, id }) => {
     <div className={styled.card}>
       <div className={styled.card_close}>
         {isFav ? (
-          <button
-            className={styled.favorite}
-            onClick={() => handleFavorite(id)}
-          >
-            ❤️
-          </button>
+          <button onClick={() => handleFavorite(props)}>❤️</button>
         ) : (
-          <button onClick={() => handleFavorite(id)}>🤍</button>
+          <button onClick={() => handleFavorite(props)}>🤍</button>
         )}
-        <button onClick={() => onClose(id)}>X</button>
+        <button onClick={() => props.onClose(props.id)}>X</button>
       </div>
       <div className={styled.card_content}>
-        <Link to={`/detail/${id}`}>
-          <h1>{name}</h1>
-          <h3>{species}</h3>
-          <h3>{gender}</h3>
-          <img src={image} alt={name} />
+        <Link to={`/detail/${props.id}`}>
+          <h1>{props.name}</h1>
+          <h3>{props.species}</h3>
+          <h3>{props.gender}</h3>
+          <img src={props.image} alt={props.name} />
         </Link>
       </div>
     </div>
