@@ -18,8 +18,8 @@ const reducer = (state = initialState, actions) => {
     case DELETE_FAVORITE_CHARACTER:
       return {
         ...state,
-        myFavorites: state.myFavorites.filter((myFavorite) => {
-          return myFavorite.id !== actions.payload;
+        myFavorites: state.myFavorites.filter((id) => {
+          return id !== actions.payload;
         }),
       };
     default:
