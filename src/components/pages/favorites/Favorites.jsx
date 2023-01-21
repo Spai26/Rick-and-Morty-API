@@ -1,80 +1,93 @@
-import { Fragment } from "react";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import Card from "../../Card/Card";
-import styled from "../../Card/Card.module.css";
-
+import styled from "./Favorites.module.css";
+import { filterCards, orderCards } from "../../../redux/actions/actions";
 const Favorite = (props) => {
+  const dispatch = useDispatch();
   const myFavorites = useSelector((state) => state.myFavorites);
-  console.log("mis favoritos", myFavorites);
-  const characters = props.characters.filter((char) => {
-    for (let value of myFavorites) {
-      if (char.id === value.id) {
-        return char;
-      }
-    }
-  });
-  console.log("mis caracteres", characters);
 
   /*props selection component */
   const selectOptions = [
     {
       id: 1,
       value: "Ascendente",
-      name: "Ascendente",
+      label: "Ascendente",
     },
     {
       id: 2,
       value: "Descendente",
-      name: "Descendente",
+      label: "Descendente",
     },
   ];
-
+  //['Male', 'Female', 'unknown', 'Genderless'];
   const selectGender = [
     {
       id: 1,
       value: "Male",
-      name: "Male",
+      label: "Male",
     },
     {
       id: 2,
-      value: "Famele",
-      name: "Famele",
+      value: "Female",
+      label: "Female",
     },
     {
       id: 3,
       value: "unknown",
-      name: "unknown",
+      label: "unknown",
+    },
+    {
+      id: 4,
+      value: "Genderless",
+      label: "Genderless",
     },
   ];
-  /*filter */
-  const handleSelectChange = (id) => {};
 
-  /*Order*/
+  function handleClick(e) {
+    e.preventDefault();
+    const { value, name } = e.target;
+
+    if (name === "filter") {
+      console.log("here filter");
+      return dispatch(filterCards(value));
+    }
+
+    if (name === "order") {
+      console.log("here order =>", value);
+      return dispatch(orderCards(value));
+    }
+  }
 
   return (
-    <Fragment>
-      <div>
-        <select onChange={handleSelectChange}>
-          <option value="default">select option ...</option>
-          {selectOptions.map((op) => (
-            <option key={op.id} value={op.value}>
-              {op.name}
+    <div className={styled.testing}>
+      <div className={styled.selection}>
+        <div>
+          <select onChange={handleClick} defaultValue={"DEFAULT"} name="order">
+            <option value="DEFAULT" disabled>
+              select option...
             </option>
-          ))}
-        </select>
-      </div>
-      <div>
-        <select>
-          <option value="default">select gender ...</option>
-          {selectGender.map((gender) => (
-            <option key={gender.id} value={gender.value}>
-              {gender.name}
+            {selectOptions.map((op) => (
+              <option key={op.id} value={op.value}>
+                {op.label}
+              </option>
+            ))}
+          </select>
+        </div>
+        <div>
+          <select onChange={handleClick} defaultValue={"default"} name="filter">
+            <option value="default" disabled>
+              select gender ...
             </option>
-          ))}
-        </select>
+            {selectGender.map((element) => (
+              <option key={element.id} value={element.value}>
+                {element.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      <div className={styled.gallery}>
-        {characters.map((char, index) => (
+      <div className={styled.mio}>
+        {myFavorites?.map((char, index) => (
           <Card
             key={index}
             id={char.id}
@@ -86,7 +99,7 @@ const Favorite = (props) => {
           />
         ))}
       </div>
-    </Fragment>
+    </div>
   );
 };
 

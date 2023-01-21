@@ -15,34 +15,43 @@ const reducer = (state = initialState, actions) => {
       return {
         ...state,
         myFavorites: [...state.myFavorites, actions.payload],
+        allCharacters: [...state.myFavorites, actions.payload],
       };
 
     case DELETE_FAVORITE_CHARACTER:
+      const deletedChar = state.myFavorites.filter(({ id }) => {
+        return id !== actions.payload;
+      });
       return {
         ...state,
-        myFavorites: state.myFavorites.filter((favorite) => {
-          return favorite.id !== actions.payload;
-        }),
+        myFavorites: deletedChar,
+        allCharacters: deletedChar,
       };
 
     case FILTER:
+      const copyFilter = [...state.allCharacters];
+      const filtrado = copyFilter.filter(
+        (char) => char.gender === actions.payload
+      );
       return {
         ...state,
-        allCharacters: [
-          ...state.allCharacters.filter(({ gender }) => {
-            return gender === actions.payload;
-          }),
-        ],
+        myFavorites: filtrado,
       };
 
     case ORDER:
+      const copyOrder = [...state.allCharacters];
+      const order = copyOrder.sort((a, b) => {
+        if (a.id > b.id) {
+          return "Ascendente" === actions.payload ? 1 : -1;
+        }
+        if (a.id < b.id) {
+          return "Descendente" === actions.payload ? 1 : -1;
+        }
+        return 0;
+      });
       return {
         ...state,
-        allCharacters: [
-          ...state.allCharacters.sort((a, { id }) => {
-            return actions.payload ? a < id : a > id;
-          }),
-        ],
+        myFavorites: order,
       };
     default:
       return { ...state };
