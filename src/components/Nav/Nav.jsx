@@ -6,7 +6,7 @@ import { Fragment, useState } from "react";
 
 const Nav = ({ onSearch, logOut }) => {
   const [click, setClick] = useState(false);
-  const [search, setSearch] = useState(false);
+  const [search, setSearch] = useState(true);
 
   const onChangeclick = () => {
     setClick(!click);
@@ -84,7 +84,7 @@ const Nav = ({ onSearch, logOut }) => {
           </div>
         </div>
       </header>
-      <div className={` ${search ? styled.isSearch : styled.nav__search}`}>
+      <div className={`${styled.nav__search}  ${search ? styled.isSearch : styled.nav__search}`}>
         <SearchBar onSearch={onSearch} />
       </div>
     </Fragment>

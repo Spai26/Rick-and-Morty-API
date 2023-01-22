@@ -1,7 +1,7 @@
 .header__main {
   background-color: var(--fondo-gradiente);
-  height: 8vh;
-  font-size: clamp(1rem, 20vw, 2rem);
+  height: 70px;
+  font-size: clamp(1rem, 18vw, 1.8rem);
 }
 
 .header__content {
@@ -10,56 +10,61 @@
   margin: auto;
   display: flex;
   justify-content: space-between;
-  justify-items: center;
   align-items: center;
+  padding: 1.8rem;
 }
 
 .nav__logo a {
   color: var(--color-primary);
-  font-weight: 700;
   letter-spacing: 5px;
-  transition: color 0.3s ease-in;
+  transition: color 0.5s ease-in;
   font-weight: 800;
 }
 
 .nav__logo a:hover {
-  color: var(--button-color-phover);
+  color: var(--color-phover);
 }
 
 .nav__links {
   display: flex;
-  justify-content: space-around;
   align-items: center;
-  width: 25%;
+  gap: 35px;
   font-size: clamp(1rem, 20vw, 1.5rem);
-  letter-spacing: 5px;
+  letter-spacing: 3px;
 }
 
 .nav__links a {
-  padding-bottom: 10px;
   font-weight: 600;
-  transition: 0.4s ease-in;
+  padding-bottom: 5px;
 }
+
+.nav__links a:hover {
+  color: var(--color-phover);
+  border-bottom: 1px solid #0c7b93;
+  transition: color 0.5s ease-out, border-bottom 0.5s ease-out;
+}
+
 .active {
-  color: var(--button-color-phover);
-  border-bottom: 1px solid var(--button-color-phover);
+  color: var(--color-phover);
+  border-bottom: 1px solid #0c7b93;
 }
 
 .logout {
-  background-color: var(--button-color-danger);
-  padding: 0.3em 0.2em 0.3em 0.2em;
+  background-color: var(--color-dhover);
+  color: white;
   text-transform: capitalize;
-  letter-spacing: 2px;
+  padding: 0.2em 0.35em;
   opacity: 0.8;
-  transition: background-color 1s ease-in;
+  transition: background-color 0.5s ease-in;
 }
 
 .logout:hover {
-  background-color: var(--button-color-dhover);
+  background-color: var(--color-danger);
 }
 
 .nav__hamburger {
   display: none;
+  color: var(--color-primary);
 }
 
 .search {
@@ -70,35 +75,48 @@
   color: var(--text-color);
 }
 
+.nav__search {
+  width: 100%;
+}
+
 @media only screen and (max-width: 960px) {
   /* Styles here */
 
+  .header__content {
+    grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    padding: clamp(0.5rem, 1.5vw, 2rem);
+  }
+
   .nav__hamburger {
     display: flex;
-    width: 25%;
     justify-content: space-between;
+    gap: 15px;
   }
 
   .nav__links {
     position: absolute;
-    top: 8vh;
-    right: -100%;
-    display: flex;
+    top: 75px;
+    display: none;
     align-items: center;
     justify-content: center;
     height: 100%;
     width: 100%;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: 2.5rem;
     background-color: var(--fondo-gradiente);
     transition: 0.5 all ease-in;
   }
+
   .links__item {
     font-size: 1.8rem;
     padding: 0.5em 1em;
+    width: 100%;
+    text-align: center;
   }
 
   .isOpen {
+    display: flex;
     right: 0;
   }
 
@@ -111,15 +129,8 @@
   }
 
   .isSearch {
-    display: flex;
+    display: grid;
     max-width: 1350px;
     margin: auto;
-  }
-}
-
-@media screen and (max-width: 1350px) {
-  /* Styles here */
-  .header__main {
-    padding: 0 2.2em 0 2.2em;
   }
 }
