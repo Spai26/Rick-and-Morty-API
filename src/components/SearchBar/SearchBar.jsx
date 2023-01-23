@@ -31,7 +31,7 @@ const Searchbar = ({ onSearch }) => {
         <input
           type="text"
           name={value}
-          placeholder="digita un ID valido"
+          placeholder="digita un ID valido del 1 al 830"
           onChange={handleOnChange}
           ref={inputFocus}
           autoFocus

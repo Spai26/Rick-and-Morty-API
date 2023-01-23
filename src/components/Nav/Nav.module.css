@@ -121,6 +121,8 @@
   }
 
   .nav__search {
+    padding-top: 1rem;
+    width: 100%;
     display: none;
   }
 
