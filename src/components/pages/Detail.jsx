@@ -25,20 +25,37 @@ const Detail = () => {
   }, [id]);
 
   return (
-    <div className={styled.detail_main}>
+    <div className={styled.main}>
       <div>
         <h1>{character.name}</h1>
-        <div className={styled.status}>
-          <h3>{character.status}</h3>
-          {character.status === "Alive" ? <GiHearts /> : <GiDeathSkull />}
+      </div>
+      <div className={styled.content}>
+        <div className={styled.description}>
+          <div className={styled.one}>
+            <p>Status :</p>
+            <p>Specie :</p>
+            <p>Gender :</p>
+            <p>Origin :</p>
+          </div>
+          <div className={styled.two}>
+            <p>
+              {character.status}
+              {character.status === "Alive" ? (
+                <GiHearts className={styled.alive} />
+              ) : (
+                <GiDeathSkull className={styled.dead} />
+              )}
+            </p>
+            <p>{character.species}</p>
+            <p>{character.gender}</p>
+            <p>{character.origin?.name}</p>
+          </div>
         </div>
-        <p>{character.species}</p>
-        <p>{character.gender}</p>
-        <p>{character.origin?.name}</p>
+        <div>
+          <img src={character.image} alt={character.name} />
+        </div>
       </div>
-      <div>
-        <img src={character.image} alt={character.name} />
-      </div>
+
       <button type="submit" onClick={() => navigate(-1)}>
         Volver
       </button>
