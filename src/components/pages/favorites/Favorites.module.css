@@ -1,20 +1,25 @@
-.testing {
+.favorites {
   width: 100%;
-  height: 100%;
+  max-width: 1350px;
   display: flex;
   flex-direction: column;
+  margin: auto;
 }
 
-.selection {
+.favorites .select {
   display: flex;
-  align-items: center;
   justify-content: center;
-  width: 40%;
-  text-align: center;
+  align-items: center;
+  gap: 15px;
 }
 
-.mio {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 1rem;
+.favorites .select select {
+  position: relative;
+  display: flex;
+  width: 10em;
+  height: 30px;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  padding: 0 0.5em;
+  color: #808080;
 }

@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import Card from "../../Card/Card";
+import card from "../../Cards/Cards.module.css";
 import styled from "./Favorites.module.css";
 import { filterCards, orderCards } from "../../../redux/actions/actions";
 const Favorite = (props) => {
@@ -59,8 +60,8 @@ const Favorite = (props) => {
   }
 
   return (
-    <div className={styled.testing}>
-      <div className={styled.selection}>
+    <div className={styled.favorites}>
+      <div className={styled.select}>
         <div>
           <select onChange={handleClick} defaultValue={"DEFAULT"} name="order">
             <option value="DEFAULT" disabled>
@@ -86,7 +87,7 @@ const Favorite = (props) => {
           </select>
         </div>
       </div>
-      <div className={styled.mio}>
+      <div className={card.gallery}>
         {myFavorites?.map((char, index) => (
           <Card
             key={index}

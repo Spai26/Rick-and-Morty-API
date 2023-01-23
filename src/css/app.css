@@ -61,6 +61,12 @@ img {
   background-attachment: fixed;
 }
 
+select {
+  outline: 0;
+  box-shadow: none;
+  border: 0 !important ;
+}
+
 .App {
   min-height: 100vh;
   background: url("../../src/assets/rick-and-morty-en-otro-planeta_3840x2160_xtrafondos.com.jpg");
