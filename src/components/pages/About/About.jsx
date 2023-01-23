@@ -24,10 +24,12 @@ const About = () => {
 
         <div className={styled.ref}>
           Si aún no me conoces solo dale click
-          <div>
+          <div className={styled.one}>
             <a href="https://github.com/Spai26" target="_blank">
               <AiFillGithub />
             </a>
+          </div>
+          <div className={styled.one}>
             <a href="https://www.linkedin.com/in/sergioai93/" target="_blank">
               <AiFillLinkedin />
             </a>

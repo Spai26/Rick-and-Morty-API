@@ -22,7 +22,6 @@
 
 .content .ref {
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   gap: 15px;
@@ -34,33 +33,53 @@
   font-size: 3rem;
   color: var(--color-phover);
   padding: 1em;
-  animation: myAnim 2s ease-in 2s infinite normal forwards;
+  animation: spin 0.5s infinite;
+}
+
+.main .content .ref .one {
+  position: relative;
+  width: 56px;
+  height: 56px;
+  animation: myAnim 2s ease 0s infinite normal forwards;
+}
+
+.one::before {
+  content: "";
+  display: block;
+  height: 28px;
+  width: 28px;
+  animation: spin 0.5s infinite;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -28px;
+  margin-top: -28px;
 }
 
 @keyframes myAnim {
-  0%,
-  100% {
-    transform: translateX(0%);
-    transform-origin: 50% 50%;
+  0% {
+    animation-timing-function: ease-out;
+    transform: scale(1);
+    transform-origin: center center;
   }
 
-  15% {
-    transform: translateX(-30px) rotate(-6deg);
+  10% {
+    animation-timing-function: ease-in;
+    transform: scale(0.91);
   }
 
-  30% {
-    transform: translateX(15px) rotate(6deg);
+  17% {
+    animation-timing-function: ease-out;
+    transform: scale(0.98);
+  }
+
+  33% {
+    animation-timing-function: ease-in;
+    transform: scale(0.87);
   }
 
   45% {
-    transform: translateX(-15px) rotate(-3.6deg);
-  }
-
-  60% {
-    transform: translateX(9px) rotate(2.4deg);
-  }
-
-  75% {
-    transform: translateX(-6px) rotate(-1.2deg);
+    animation-timing-function: ease-out;
+    transform: scale(1);
   }
 }
