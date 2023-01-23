@@ -34,19 +34,36 @@ const Card = (props) => {
     <div className={styled.card}>
       <div className={styled.card_close}>
         {isFav ? (
-          <button onClick={() => handleFavorite(props)}>❤️</button>
+          <button
+            onClick={() => handleFavorite(props)}
+            className={styled.fav}
+            fav={isFav.toString()}
+          >
+            ❤️
+          </button>
         ) : (
-          <button onClick={() => handleFavorite(props)}>🤍</button>
+          <button
+            onClick={() => handleFavorite(props)}
+            className={styled.fav}
+            fav={isFav.toString()}
+          >
+            🤍
+          </button>
         )}
-        <button onClick={() => props.onClose(props.id)}>X</button>
+        <button onClick={() => props.onClose(props.id)} className={styled.fil}>
+          X
+        </button>
       </div>
-      <div className={styled.card_content}>
-        <Link to={`/detail/${props.id}`}>
+      <div className={styled.box}>
+        <div className={styled.content}>
           <h1>{props.name}</h1>
           <h3>{props.species}</h3>
           <h3>{props.gender}</h3>
           <img src={props.image} alt={props.name} />
-        </Link>
+        </div>
+        <div className={styled.details}>
+          <Link to={`/detail/${props.id}`}>Details</Link>
+        </div>
       </div>
     </div>
   );
