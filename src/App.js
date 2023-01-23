@@ -1,11 +1,11 @@
 import Cards from "./components/Cards/Cards";
 import Nav from "./components/Nav/Nav";
-import About from "./components/pages/About";
-import Detail from "./components/pages/Detail.jsx";
+import About from "./components/pages/About/About";
+import Detail from "./components/pages/Detail/Detail.jsx";
 import LoginForm from "./components/Aplication Form/LoginForm";
 import { useEffect, useState } from "react";
 import { Routes, Route, useLocation, useNavigate } from "react-router-dom";
-import Error404 from "./components/pages/Error404";
+import Error404 from "./components/pages/Error404/Error404";
 import Favorite from "./components/pages/favorites/Favorites";
 function App() {
   //home  => app

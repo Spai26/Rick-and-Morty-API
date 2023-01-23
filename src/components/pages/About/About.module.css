@@ -1,0 +1,66 @@
+.main {
+  margin: auto;
+  width: 100%;
+  max-width: 1350px;
+  padding-top: 1rem;
+  border-radius: var(--border-radius);
+  background: rgba(255, 255, 255, 0.4);
+  -webkit-backdrop-filter: blur(5px);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.content {
+  padding: 0 2rem;
+  font-size: clamp(0.5rem, 10vw, 1.5rem);
+  color: var(--font-primary);
+}
+
+.content p {
+  line-height: 1.5;
+}
+
+.content .ref {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 15px;
+  color: var(--color-primary);
+  font-weight: 700;
+}
+
+.main .content .ref a {
+  font-size: 3rem;
+  color: var(--color-phover);
+  padding: 1em;
+  animation: myAnim 2s ease-in 2s infinite normal forwards;
+}
+
+@keyframes myAnim {
+  0%,
+  100% {
+    transform: translateX(0%);
+    transform-origin: 50% 50%;
+  }
+
+  15% {
+    transform: translateX(-30px) rotate(-6deg);
+  }
+
+  30% {
+    transform: translateX(15px) rotate(6deg);
+  }
+
+  45% {
+    transform: translateX(-15px) rotate(-3.6deg);
+  }
+
+  60% {
+    transform: translateX(9px) rotate(2.4deg);
+  }
+
+  75% {
+    transform: translateX(-6px) rotate(-1.2deg);
+  }
+}
