@@ -63,6 +63,15 @@ const LoginFrom = (props) => {
         <div className={styled.main__login}>
           <div className={styled.login__header}>
             <h1>Welcome to aplication </h1>
+
+            <div className={styled.data}>
+              <span>please use this data </span>
+              <div>
+                <p>user@hotmail.com</p>
+                <p>asd123</p>
+              </div>
+             
+            </div>
           </div>
 
           <form onSubmit={handleOnSubmit} className={styled.login__form}>

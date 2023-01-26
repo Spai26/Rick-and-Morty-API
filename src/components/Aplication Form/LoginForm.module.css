@@ -78,11 +78,13 @@
   font-family: var(--text-primary);
   font-size: 13px;
   margin-top: 2rem;
+  text-align: center;
 }
 
 .login__header h1 {
   color: var(--font-primary);
   text-align: center;
+  padding: 0.5rem;
 }
 .login__form {
   width: 100%;
@@ -137,4 +139,42 @@ input:invalid[focused="true"] ~ span {
   padding: 3px;
   display: none;
   padding-left: 10px;
+}
+
+.login__header .data {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.data:after,
+.data::before {
+  content: "";
+  display: block;
+  position: absolute;
+  border: 5px;
+  border: 1px solid black;
+  animation: data 1.5s linear infinite;
+}
+
+@keyframes data {
+  0% {
+    transform: scale(0.2);
+    opacity: 0;
+  }
+  
+}
+
+.login__header .data span {
+  padding-bottom: 0.5rem;
+}
+
+.login__header .data p {
+  margin: 0;
+}
+
+.login__header .data > div {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 1rem;
 }
